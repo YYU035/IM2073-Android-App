@@ -34,10 +34,10 @@ public class SelectServlet extends HttpServlet {
          Statement stmt = conn.createStatement();
       ) {
          // Steps 3-4:
-         // TO-DO: un-hardcode question number
          // TO-DO: multiple choices
+         String questionNo = request.getParameter("questionNo");
          String choice = request.getParameter("choice");
-         String sqlStr = "insert into responses (questionNo, choice) values (8, '" + choice + "')";
+         String sqlStr = "insert into responses (questionNo, choice) values (" + questionNo + ", '" + choice + "')";
          
          out.println("<h3>Thank you for your selection.</h3>");
          out.println("<p>Your SQL statement is: " + sqlStr + "</p>"); // Echo for debugging
