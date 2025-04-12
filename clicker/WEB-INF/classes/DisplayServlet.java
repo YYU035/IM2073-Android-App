@@ -35,7 +35,6 @@ public class DisplayServlet extends HttpServlet {
       ) {
          
          // TO-DO: bar chart showing results
-         // TO-DO: link to HTML pages
 
          String questionNo = request.getParameter("questionNo");
          String sqlStr = "SELECT choice, COUNT(*) AS count FROM responses WHERE questionNo = " + questionNo + " GROUP BY choice";
@@ -62,6 +61,19 @@ public class DisplayServlet extends HttpServlet {
          }
          out.println("<p>==== " + count + " records found =====</p>");
          */
+
+         int intQuestionNo = Integer.parseInt(questionNo);
+         int nextQuestionNo = intQuestionNo + 1;
+
+         if (nextQuestionNo <= 5) {
+            out.println("<a href='http://localhost:9999/clicker/question" + nextQuestionNo + ".html'>");
+            out.println("<button>Next Question</button>");
+            out.println("</a>");
+         } else {
+            out.println("<a href='http://localhost:9999/clicker/completionpage.html'>");
+            out.println("<button>Complete Quiz</button>");
+            out.println("</a>");
+         }
 
          // === Do NOT delete the following codes ===
       } catch(SQLException ex) {
