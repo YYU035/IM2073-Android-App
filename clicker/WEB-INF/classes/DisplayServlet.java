@@ -34,22 +34,34 @@ public class DisplayServlet extends HttpServlet {
          Statement stmt = conn.createStatement();
       ) {
          
-         // TO-DO: un-hardcode questions
          // TO-DO: bar chart showing results
+         // TO-DO: link to HTML pages
 
-         String sqlStr = "select choice from responses where questionNo = 8 order by choice asc";
+         String questionNo = request.getParameter("questionNo");
+         String sqlStr = "SELECT choice, COUNT(*) AS count FROM responses WHERE questionNo = " + questionNo + " GROUP BY choice";
 
          out.println("<h3>Here are the responses:</h3>");
          out.println("<p>Your SQL statement is: " + sqlStr + "</p>"); // Echo for debugging
 
          ResultSet rset = stmt.executeQuery(sqlStr); // run the SQL statement
 
+         out.println("<h2>Statistics for Question " + questionNo + ":</h2>");
+         out.println("<ul>");
+         while (rset.next()) {
+            String choice = rset.getString("choice");
+            int count = rset.getInt("count");
+            out.println("<li>" + choice + ": " + count + " responses</li>");
+         }
+         out.println("</ul>");
+
+         /*
          int count = 0;
          while(rset.next()) {
             out.println("<p>" + rset.getString("choice") + "</p>");
             count++;
          }
          out.println("<p>==== " + count + " records found =====</p>");
+         */
 
          // === Do NOT delete the following codes ===
       } catch(SQLException ex) {
