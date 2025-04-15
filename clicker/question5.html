@@ -2,18 +2,41 @@
 <html>
 <head>
   <title>Quiz Time!</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h2>Question 5: which one is a fruit?</h2>
-  <h3>a) (picture)<br>b) (picture)<br>c) (picture)<br>d) (picture)<br>
+  <div class="questions-container">
+    <label for="progress">Progress: 5/5</label><br>
+    <progress id="progress" value="100" max="100">100%</progress><br><br>
+    <h2>Q5: Which one is a fruit?</h2>
 
-  <a href="http://localhost:9999/clicker/question4.html">
-    <button>Previous Question</button>
-  </a>
-  <br>
-  <a href="http://localhost:9999/clicker/display?questionNo=5">
-    <button>Responses</button>
-  </a>
+    <div class="Q5-container">
+      <div class="choice-container">
+        <h3>A.</h3>
+        <img src="Images/Q5A.jpg" alt="An apple" width="130" height="130">
+      </div>
+      <div class="choice-container">
+        <h3>B.</h3>
+        <img src="Images/Q5B.jpg" alt="A rock" width="130" height="130">
+      </div>
+      <div class="choice-container">
+        <h3>C.</h3>
+        <img src="Images/Q5C.jpg" alt="A toy" width="130" height="130">
+      </div>
+      <div class="choice-container">
+        <h3>D.</h3>
+        <img src="Images/Q5D.jpg" alt="A traffic light" width="130" height="130">
+      </div>
+    </div>
+    
+    <a href="http://localhost:9999/clicker/question4.html">
+      <button class="button">Previous Question</button>
+    </a>
+    <br>
+    <a href="http://localhost:9999/clicker/display?questionNo=5">
+      <button class="button">Responses</button>
+    </a>
+  </div>
 
 </body>
 </html>
