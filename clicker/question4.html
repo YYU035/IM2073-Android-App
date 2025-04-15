@@ -2,18 +2,23 @@
 <html>
 <head>
   <title>Quiz Time!</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h2>Question 4: what colour do you get when you mix red and blue?</h2>
-  <h3>a) yellow<br>b) green<br>c) purple<br>d) orange<br>
+  <div class="questions-container">
+    <label for="progress">Progress: 4/5</label><br>
+    <progress id="progress" value="80" max="100">80%</progress><br><br>
+    <h2>Q4: What colour do you get when you mix red and blue?</h2>
+    <h3>A. Yellow<br>B. Green<br>C. Purple<br>D. Orange<br></h3>
 
-  <a href="http://localhost:9999/clicker/question3.html">
-    <button>Previous Question</button>
-  </a>
-  <br>
-  <a href="http://localhost:9999/clicker/display?questionNo=4">
-    <button>Responses</button>
-  </a>
+    <a href="http://localhost:9999/clicker/question3.html">
+      <button class="button">Previous Question</button>
+    </a>
+    <br>
+    <a href="http://localhost:9999/clicker/display?questionNo=4">
+      <button class="button">Responses</button>
+    </a>
+  </div>
 
 </body>
 </html>
