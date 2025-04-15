@@ -2,23 +2,18 @@
 <html>
 <head>
   <title>Quiz Time!</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h2>Question 1: what is 2+2?</h2>
-  <h3>a) 3<br>b) 4<br>c) 12<br>d) 9<br>
+  <div class="questions-container">
+    <label for="progress">Progress: 1/5</label><br>
+    <progress id="progress" value="20" max="100">20%</progress><br><br>
+    <h2>Q1: What is 2+2?</h2>
+    <h3>A. 3<br>B. 4<br>C. 12<br>D. 9<br></h3>
 
-  <a href="http://localhost:9999/clicker/display?questionNo=1">
-    <button>Responses</button>
-  </a>
-
-  <!--
-  <form method="get" action="http://localhost:9999/ebookshop/query">
-    Choose an author:<br /><br />
-    <input type="checkbox" name="author" value="Tan Ah Teck" />Ah Teck
-    <input type="checkbox" name="author" value="Mohammad Ali" />Ali
-    <input type="checkbox" name="author" value="Kumar" />Kumar
-    <input type="submit" value="Search" />
-  </form>
-  -->
+    <a href="http://localhost:9999/clicker/display?questionNo=1">
+      <button class="button">Responses</button>
+    </a>
+  </div>
 </body>
 </html>
