@@ -2,18 +2,23 @@
 <html>
 <head>
   <title>Quiz Time!</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h2>Question 3: which planet is known as the Red Planet?</h2>
-  <h3>a) Earth<br>b) Mars<br>c) Venus<br>d) Jupiter<br>
+  <div class="questions-container">
+    <label for="progress">Progress: 3/5</label><br>
+    <progress id="progress" value="60" max="100">60%</progress><br><br>
+    <h2>Q3: Which planet is known as the Red Planet?</h2>
+    <h3>A. Earth<br>B. Mars<br>C. Venus<br>D. Jupiter<br></h3>
 
-  <a href="http://localhost:9999/clicker/question2.html">
-    <button>Previous Question</button>
-  </a>
-  <br>
-  <a href="http://localhost:9999/clicker/display?questionNo=3">
-    <button>Responses</button>
-  </a>
+    <a href="http://localhost:9999/clicker/question2.html">
+      <button class="button">Previous Question</button>
+    </a>
+    <br>
+    <a href="http://localhost:9999/clicker/display?questionNo=3">
+      <button class="button">Responses</button>
+    </a>
+  </div>
 
 </body>
 </html>
