@@ -1,8 +1,8 @@
-// MainActivity.java
 package com.example.clickerclient;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -15,10 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import android.os.CountDownTimer;
 import android.util.Log;
-
-
-
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private String[] correctAnswers = {"B", "D", "B", "C", "A"};
 
 
-    private String serverUrl = "http://10.91.77.230:9999/clicker/select";
+    private String serverUrl = "http://10.91.205.79:9999/clicker/select";
+
     //url of my teammate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,9 +132,16 @@ public class MainActivity extends AppCompatActivity {
 
         timer = new CountDownTimer(QUESTION_TIME * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
+                int seconds = (int) (millisUntilFinished / 1000);
                 txtTimer.setText("Time remaining: " + millisUntilFinished / 1000 + "s");
-            }
 
+
+                if (seconds <= 10) {
+                    txtTimer.setTextColor(Color.RED);
+                } else {
+                    txtTimer.setTextColor(Color.parseColor("#303F9F"));
+                }
+            }
             public void onFinish() {
                 txtTimer.setText("⏰ Time's up!");
                 sendAnswer(currentQuestion + 1, ""); // Empty string if no answer
@@ -183,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
             try {
                 String urlStr = serverUrl + "?questionNo=" + questionNo + "&choice=" + choice;
-
-                // ✅ 调试输出
                 Log.d("ClientRequest", "Sending to: " + urlStr);
 
                 URL url = new URL(urlStr);
@@ -193,8 +195,6 @@ public class MainActivity extends AppCompatActivity {
                 conn.connect();
 
                 int code = conn.getResponseCode();
-
-                // ✅ 打印服务器响应码
                 Log.d("ClientResponse", "Code: " + code);
 
                 conn.disconnect();
@@ -206,5 +206,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
 
